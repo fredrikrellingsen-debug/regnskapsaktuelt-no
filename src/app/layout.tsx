@@ -2,11 +2,26 @@ import Script from 'next/script';
 import './globals.css';
 import React, { Suspense } from 'react';
 import type { Metadata, Viewport } from 'next';
+import { Space_Grotesk, Inter } from 'next/font/google';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import MobileAppShell from '@/components/MobileAppShell';
 import { SITE_CONFIG } from '@/config/site';
 import { getContrastInk } from '@/lib/articleMeta';
+
+const headingFont = Space_Grotesk({
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+  variable: '--font-heading-google',
+  display: 'swap',
+});
+
+const bodyFont = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-body-google',
+  display: 'swap',
+});
 
 export const viewport: Viewport = {
   themeColor: SITE_CONFIG.theme.headerBg,
@@ -75,12 +90,12 @@ export default function RootLayout({
     '--border': theme.border,
     '--header-bg': theme.headerBg,
     '--header-ink': theme.headerInk,
-    '--font-heading': theme.fontHeading,
-    '--font-body': theme.fontBody,
+    '--font-heading': 'var(--font-heading-google), Georgia, serif',
+    '--font-body': 'var(--font-body-google), system-ui, sans-serif',
   } as React.CSSProperties;
 
   return (
-    <html lang="nb" style={themeVars}>
+    <html lang="nb" className={`${headingFont.variable} ${bodyFont.variable}`} style={themeVars}>
       <body
         className="min-h-screen flex flex-col antialiased pb-24 lg:pb-0"
         style={{

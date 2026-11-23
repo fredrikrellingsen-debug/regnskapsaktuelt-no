@@ -79,8 +79,8 @@ export const SITE_CONFIG: SiteConfig = {
     border: "#d8e7e0",
     headerBg: "#064e3b",
     headerInk: "#ecfdf5",
-    fontHeading: "Georgia, Cambria, serif",
-    fontBody: "system-ui, -apple-system, sans-serif",
+    fontHeading: "var(--font-heading-google), Georgia, serif",
+    fontBody: "var(--font-body-google), system-ui, sans-serif",
   },
   aboutText: "RegnskapsAktuelt dekker regelverk, praksis og digitalisering innen norsk regnskap, skatt, merverdiavgift, lønn, årsoppgjør og økonomistyring for bedrifter og rådgivere.",
 };
